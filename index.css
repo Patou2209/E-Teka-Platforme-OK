@@ -1,0 +1,160 @@
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: Lato,Tahoma,Verdana,Arial,Helvetica,sans-serif;
+}
+.ads-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+    width: 80%;
+}
+.ad-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 250px;
+    overflow: hidden;
+    font-family: Lato,Tahoma,Verdana,Arial,Helvetica,sans-serif;
+    font-size: 0.90rem;
+}
+.ad-box img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+p {
+    margin: 2px 0;
+}
+#header .logoTexte {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+#header .logoTexte span {
+    
+    color: rgb(179, 160, 77);
+    
+}
+.fa-map-marker {
+    color: #f00;
+    font-size: 1.5rem;
+}
+
+.hero-container {
+    position: relative;
+    width: 90%;
+    height: 60vh;
+    overflow: hidden;
+    margin: 2rem auto;
+    margin-bottom: 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.hero-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+.hero-slide.active {
+    opacity: 1;
+}
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+.hero-content h1 {
+    font-size: 2.5rem;
+}
+.hero-content p {
+    font-size: 1.1rem;
+}
+.btn {
+    margin-top: 10px;
+    padding: 0.5rem 1rem; ;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn:hover {
+    background-color: #0056b3;
+}
+.hero-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+.hero-buttons button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+.hero-buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;  
+}
+.categories  {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+}
+.categories i {
+    color: black; /* Couleur des icônes */
+    padding: 0.2rem;
+    background: whitesmoke; /* Fond léger pour chaque icône */
+    border-radius: 8px; /* Coins arrondis */
+    transition: all 0.3s ease-in-out; /* Animation fluide */
+    font-size: 1.5rem; /* Taille des icônes */
+}
+
+.categories i:hover {
+    color: white;
+    background: #0e1722; /* Change la couleur au survol */
+    transform: scale(1.1); /* Effet d'agrandissement */
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .categories {
+        font-size: small;
+    }
+    .hero-container {
+        padding: 0 auto;
+    }
+}
+ 

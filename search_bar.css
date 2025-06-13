@@ -1,0 +1,196 @@
+/* Ajoute ceci dans style.css 
+.search-container #search-bar,
+.search-container select {
+  width: 0;
+  opacity: 0;
+  padding: 0;
+  border: none;
+  transition: width 0.3s, opacity 0.3s, padding 0.3s;
+}
+  */
+/*
+.search-container.active #search-bar {
+  width: 180px;
+  opacity: 1;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+} 
+
+.search-container.active select {
+  width: 40px;
+  opacity: 1;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+} */
+.search-container {
+  position: relative;
+  display: flex; 
+  align-items: center;
+}
+
+/*
+#search-bar {
+  width: 0;
+  opacity: 0;
+  transition: width 0.3s, opacity 0.3s;
+  margin-left: 8px;
+}
+
+// si l'on veut revenir a l'ancien style dont faire apparaitre le search bar au click il faut enlever les commentaire ci haut et puis enlenver le code en bas ici
+
+*/
+
+.search #search-bar {
+  width: 180px;
+  opacity: 1;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  margin-left: 7px;
+} 
+
+.search #sort-ads {
+  width: 40px;
+  opacity: 1;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 477px) {
+  .search #search-bar{
+  width: 135px;
+  
+  }
+
+ .search #sort-ads {
+  width: 30px;
+  
+}
+.logoTexte {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 30%;
+    
+}
+}
+@media (min-width: 478px) {
+  .search #search-bar{
+  width: 150px;
+  
+  }
+  .logoTexte {
+    font-size: 1.2rem;
+    
+    
+  }
+
+ .search #sort-ads {
+  width: 40px;
+ 
+}
+}
+@media (min-width: 970px) {
+  .search #search-bar{
+  width: 200px;
+  
+  }
+
+ .search #sort-ads {
+  width: 40px;
+ 
+}
+}
+
+@media (min-width: 1200px) {
+  .search #search-bar{
+  width: 250px;
+  
+  }
+
+ .search #sort-ads {
+  width: 50px;
+ 
+}
+}
+
+/* Pour affichage product 1 */
+#product1 {
+  text-align: center;
+  display: flex ;
+  flex-wrap: wrap ;
+  justify-content: space-between ;
+  padding-top: 20px ;
+}
+
+
+#product2 .pro-container {
+  display: flex ;
+  flex-wrap: wrap ;
+  justify-content: space-between ;
+  padding-top: 15px ;
+}
+#product2 .pro{
+  width: 23%;
+  min-width: 250px;
+  padding: 10px 12px;
+  border: 1px solid #cce7d0;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.2);
+  margin: 15px 0;
+  transition: 0.3s ease;
+  position: relative;
+}
+#product2 .pro:hover {
+  box-shadow: 10px 10px 54px rgba(0, 0, 0, 0.06);
+}
+#product2 .pro img {
+  width: 100%;
+  height: 250px;
+  border-radius: 20px;
+}
+#product2 .pro .des {
+  text-align: start;
+  padding: 10px 0;
+}
+
+#product2 .pro .des span {
+  color : #606063;
+  font-size: 12px;
+}
+#product2 .pro .des h5 {
+  padding-top: 7px;
+  color: #222222b0;
+  font-size: 14px;
+}
+
+#product2 .pro .des i{
+  font-size: 12px;
+  color: rgb(179, 160, 77);
+}
+#product2 .pro .des h4 {
+  padding-top: 7px;
+  font-size: 15px;
+  font-weight: 700;
+  color: rgb(179, 160, 77);
+}
+
+#product2 .pro .cart,
+.ad-box .cart{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: #e8f6ea;
+  color: #007bff;
+  font-weight: 500;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  border-color: 1px solid #cce7d0;
+}
+
+
