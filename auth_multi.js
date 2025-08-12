@@ -6,17 +6,17 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebas
     } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
     import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 
-    const firebaseConfig = {
-      databaseURL: "https://platform-ecommerce-df85c-default-rtdb.asia-southeast1.firebasedatabase.app",
-      apiKey: "AIzaSyCTr5mfSr6aDgC8ekkmHxCHGg8BhmnWhpA",
-      authDomain: "platform-ecommerce-df85c.firebaseapp.com",
-      projectId: "platform-ecommerce-df85c",
-      storageBucket: "platform-ecommerce-df85c.firebasestorage.app",
-      messagingSenderId: "968655514470",
-      appId: "1:968655514470:web:81105c9790d5c8c68976a7"
-  };
+    const appSettings = {
+      databaseURL: "https://e-teka-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      apiKey: "AIzaSyCl74rSQwA-pW5WrG_9wpEcySStyyzTQKQ",
+      authDomain: "e-teka.firebaseapp.com",
+      projectId: "e-teka",
+      storageBucket: "e-teka.firebasestorage.app",
+      messagingSenderId: "472203805953",
+      appId: "1:472203805953:web:3ae1061d2f51036e184700"
+    };
 
-    const app = initializeApp(firebaseConfig);
+    const app = initializeApp(appSettings);
     const auth = getAuth(app);
 
     // Connexion (corrigé : bons IDs)

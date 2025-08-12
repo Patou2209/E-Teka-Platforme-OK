@@ -1,0 +1,94 @@
+<style>
+#loading-spinner {
+  display: none;
+  margin: 10px auto;
+  text-align: center;
+  font-weight: bold;
+  color: #444;
+  font-size: 1.1em;
+}
+</style>
+<div id="loading-spinner">⏳ Génération du PDF et upload en cours...</div>
+
+<script>
+    document.getElementById("ad-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const btnSubmit = e.target.querySelector("button[type='submit']");
+  const spinner = document.getElementById("loading-spinner");
+
+  const category = document.getElementById("ad-category").value.trim();
+  const title = document.getElementById("ad-title").value.trim();
+  const price = document.getElementById("ad-price").value.trim();
+
+  if (!category || !title || !price) {
+    alert("Veuillez remplir tous les champs !");
+    return;
+  }
+
+  try {
+    btnSubmit.disabled = true;
+    spinner.style.display = "block";
+
+    const user = auth.currentUser;
+    const adKey = push(adsRef).key;
+
+    // Crée un élément DOM temporaire pour le PDF
+    const tempDiv = document.createElement("div");
+    tempDiv.style.width = "400px";
+    tempDiv.style.padding = "10px";
+    tempDiv.style.border = "1px solid #ccc";
+    tempDiv.innerHTML = `
+      <h2>${title}</h2>
+      <p>Catégorie: ${category}</p>
+      <p>Prix: ${price}€</p>
+    `;
+    document.body.appendChild(tempDiv);
+
+    // Génération du PDF AVANT enregistrement
+    const canvas = await html2canvas(tempDiv);
+    const imgData = canvas.toDataURL("image/png");
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF();
+    pdf.addImage(imgData, "PNG", 10, 10, 180, 0);
+    const pdfBlob = pdf.output("blob");
+
+    // Téléchargement automatique du PDF sur PC
+    const pdfFileName = `${title.replace(/\s+/g, "_")}.pdf`;
+    const pdfURLLocal = URL.createObjectURL(pdfBlob);
+    const a = document.createElement("a");
+    a.href = pdfURLLocal;
+    a.download = pdfFileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Upload vers Firebase Storage
+    const pdfRef = storageRef(storage, `ads/${adKey}/ad.pdf`);
+    await uploadBytes(pdfRef, pdfBlob);
+    const pdfURL = await getDownloadURL(pdfRef);
+
+    document.body.removeChild(tempDiv);
+
+    // Enregistrement dans la base AVEC pdfURL dès le départ
+    const adData = {
+      category,
+      title,
+      price,
+      userEmail: user.email,
+      pdfURL
+    };
+    await update(ref(database, `ads/${adKey}`), adData);
+
+    alert("Annonce ajoutée avec PDF !");
+    e.target.reset();
+  } catch (err) {
+    console.error("Erreur ajout annonce:", err);
+    alert("Erreur lors de l'ajout de l'annonce.");
+  } finally {
+    btnSubmit.disabled = false;
+    spinner.style.display = "none";
+  }
+});
+
+</script>
