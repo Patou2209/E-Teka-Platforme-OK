@@ -103,4 +103,14 @@
                 transform: translateX(0);
             }
         }
+
+        /* PDF CONTAINER */
+        .pdf-container {
+            width: 100%;
+            max-width: 794px; /* limite sur desktop */
+            background: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
     
